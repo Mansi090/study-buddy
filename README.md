@@ -26,59 +26,76 @@ A modern, AI-powered study assistant that helps students generate summaries and 
 - npm or yarn
 - OpenRouter API key (free tier available)
 
-### Installation
+## ⚠️ Windows & PowerShell Virtual Environment Activation
+
+If your project path contains spaces or you see a `bin` directory (instead of `Scripts`) after running `python -m venv venv`, activate your virtual environment in PowerShell with:
+
+```
+.\venv\bin\Activate.ps1
+```
+
+If you see a `Scripts` directory, use:
+
+```
+. .\venv\Scripts\activate
+```
+
+If you get a security error, run:
+
+```
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+---
+
+## 🏁 Step-by-Step: How to Run This Project
 
 1. **Clone the repository**
-   ```bash
+   ```powershell
    git clone https://github.com/yourusername/study-helper.git
    cd study-helper
    ```
 
 2. **Backend Setup**
-   ```bash
+   ```powershell
    cd backend
    python -m venv venv
-   
-   # On Windows
-   venv\Scripts\activate
-   
-   # On macOS/Linux
-   source venv/bin/activate
-   
+   # If you see a 'bin' directory:
+   .\venv\bin\Activate.ps1
+   # If you see a 'Scripts' directory:
+   . .\venv\Scripts\activate
    pip install -r requirements.txt
    ```
 
-3. **Frontend Setup**
-   ```bash
+3. **Environment Configuration**
+   - Create a `.env` file in the `backend` directory with your OpenRouter API key:
+     ```env
+     OPENROUTER_API_KEY=your_openrouter_api_key_here
+     ```
+
+4. **Frontend Setup**
+   ```powershell
    cd ../frontend
    npm install
    ```
 
-4. **Environment Configuration**
-   
-   Create a `.env` file in the `backend` directory:
-   ```env
-   OPENROUTER_API_KEY=your_openrouter_api_key_here
-   ```
-
 5. **Start the Application**
-   
-   **Backend (Terminal 1):**
-   ```bash
-   cd backend
-   uvicorn main:app --reload --host 0.0.0.0 --port 8000
-   ```
-   
-   **Frontend (Terminal 2):**
-   ```bash
-   cd frontend
-   npm start
-   ```
+   - **Backend (Terminal 1):**
+     ```powershell
+     cd backend
+     # Activate venv as above
+     uvicorn main:app --reload --host 0.0.0.0 --port 8000
+     ```
+   - **Frontend (Terminal 2):**
+     ```powershell
+     cd frontend
+     npm start
+     ```
 
 6. **Access the Application**
    - Frontend: http://localhost:3000
    - Backend API: http://localhost:8000
-   - API Documentation: http://localhost:8000/docs
+   - API Docs: http://localhost:8000/docs
 
 ## 📖 Usage
 
@@ -234,4 +251,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <div align="center">
   <p>Made with ❤️ for students everywhere</p>
   <p>⭐ Star this repository if you found it helpful!</p>
+</div> 
 </div> 
